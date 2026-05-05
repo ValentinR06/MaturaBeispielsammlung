@@ -194,7 +194,7 @@ public class BinaryTree<T extends Comparable<T>> implements Tree<T>{
 
         List<T> list1 = findPathRecursive(node, new ArrayList<>(), val1);
         List<T> list2 = findPathRecursive(node, new ArrayList<>(), val2);
-        list1.remove(list1.size() - 1);
+        list1.removeLast();
         Collections.reverse(list2);
         list1.addAll(list2);
         return list1;
@@ -212,5 +212,15 @@ public class BinaryTree<T extends Comparable<T>> implements Tree<T>{
 
         list.add(node.getValue());
         return list;
+    }
+
+    @Override
+    public int computeMaxDepth() {
+        return computeMaxDepthRecursive(root);
+    }
+
+    private int computeMaxDepthRecursive(Node<T> node) {
+        if (node == null) return 0;
+        return Math.max(computeMaxDepthRecursive(node.getLeft()), computeMaxDepthRecursive(node.getRight())) + 1;
     }
 }

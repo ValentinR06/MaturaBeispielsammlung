@@ -102,7 +102,6 @@ public class Graph {
                 }
             }
             heap.sort(Comparator.comparingInt(Node::getMinWeight));
-            if (heap.isEmpty()) return;
             p = heap.removeFirst();
         }
     }

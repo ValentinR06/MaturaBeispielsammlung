@@ -11,4 +11,5 @@ public interface Tree<T extends Comparable<T>> {
     void traversePreOrder();
     void traversePostOrder();
     List<T> findPathTo(T val1, T val2) throws NotInTreeException;
+    int computeMaxDepth();
 }
